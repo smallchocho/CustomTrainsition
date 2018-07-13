@@ -38,6 +38,7 @@ class InteractivityFirstViewController: UIViewController {
     }
     
     @objc func onClickedTrainsitionButton(_ sender:UIButton){
+        self.interactivitySecondViewController.customTransitionDelegate = self.customTransitionDelegate
         self.present(interactivitySecondViewController, animated: true, completion: nil)
     }
 
@@ -68,6 +69,7 @@ extension InteractivityFirstViewController {
         /// 设置targetEdge为右边，也就是检测从右边向左滑动的手势
 //        customTransitionDelegate.direction = UIPanGestureRecognizerDirection.topToBottom
         customTransitionDelegate.targetEdge = UIRectEdge.right
+        self.interactivitySecondViewController.customTransitionDelegate = self.customTransitionDelegate
         self.present(interactivitySecondViewController, animated: true, completion: nil)
     }
 }

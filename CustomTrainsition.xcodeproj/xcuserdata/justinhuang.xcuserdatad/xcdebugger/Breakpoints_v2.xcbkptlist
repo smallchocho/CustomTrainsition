@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CustomTrainsition/interactivity/TransitionInteractionController.swift"
-            timestampString = "553146303.43678"
+            filePath = "CustomTrainsition/interactivity/InteractivityAnimationDelegate.swift"
+            timestampString = "553166309.240917"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "gestureRecognizeDidUpdate(gestureRecognizer:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "interactionControllerForDismissal(using:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CustomTrainsition/interactivity/TransitionInteractionController.swift"
-            timestampString = "553146303.437435"
+            filePath = "CustomTrainsition/interactivity/InteractivityAnimationDelegate.swift"
+            timestampString = "553166309.2417409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "gestureRecognizeDidUpdate(gestureRecognizer:)"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "animationController(forDismissed:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CustomTrainsition/interactivity/TransitionInteractionController.swift"
-            timestampString = "553146303.4377069"
+            filePath = "CustomTrainsition/interactivity/InteractivityAnimationDelegate.swift"
+            timestampString = "553166309.2421989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "gestureRecognizeDidUpdate(gestureRecognizer:)"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "animationController(forPresented:presenting:source:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

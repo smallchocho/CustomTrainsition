@@ -8,7 +8,7 @@
 
 import UIKit
 class InteractivityAnimationDelegate:NSObject,UIViewControllerTransitioningDelegate{
-    var gestureRecognizer: UIScreenEdgePanGestureRecognizer? = nil
+    weak var gestureRecognizer: UIScreenEdgePanGestureRecognizer?
     var targetEdge: UIRectEdge = .all
 //    var direction:UIPanGestureRecognizerDirection?
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -24,13 +24,11 @@ class InteractivityAnimationDelegate:NSObject,UIViewControllerTransitioningDeleg
     
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         guard let gesture = gestureRecognizer else{ return nil }
-//        guard let dir = self.direction else { return nil }
         return TransitionInteractionController(gestureRecognizer: gesture, edge: self.targetEdge)
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         guard let gesture = gestureRecognizer else{ return nil }
-//        guard let dir = self.direction else { return nil }
         return TransitionInteractionController(gestureRecognizer: gesture, edge: self.targetEdge)
     }
     
