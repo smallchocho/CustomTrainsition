@@ -36,8 +36,8 @@ class TransitionInteractionController:UIPercentDrivenInteractiveTransition{
         let height = transitionContainerView.bounds.height
         
         switch self.direction {
-        case UIPanGestureRecognizerDirection.leftToRight: return (width - locationInSourceView.x) / width
-        case UIPanGestureRecognizerDirection.rightToLeft: return locationInSourceView.x / width
+        case UIPanGestureRecognizerDirection.leftToRight: return locationInSourceView.x / width
+        case UIPanGestureRecognizerDirection.rightToLeft: return (width - locationInSourceView.x) / width
         case UIPanGestureRecognizerDirection.topToBottom: return (height - locationInSourceView.y) / height
         case UIPanGestureRecognizerDirection.bottomToTop: return locationInSourceView.y / height
         default: return 0

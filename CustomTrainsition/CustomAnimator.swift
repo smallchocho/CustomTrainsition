@@ -14,7 +14,6 @@ class CustomAnimator:NSObject,UIViewControllerAnimatedTransitioning{
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let fromVC = transitionContext.viewController(forKey: .from)
         let toVC = transitionContext.viewController(forKey: .to)
         let fromView = transitionContext.view(forKey: .from)
         let toView = transitionContext.view(forKey: .to)
@@ -28,6 +27,7 @@ class CustomAnimator:NSObject,UIViewControllerAnimatedTransitioning{
             toView?.frame = transitionContext.finalFrame(for: toVC!)
         }) { (finished:Bool) in
             let wasCanceled = transitionContext.transitionWasCancelled
+            if wasCanceled{ toView?.removeFromSuperview() }
             transitionContext.completeTransition(!wasCanceled)
         }
     }
