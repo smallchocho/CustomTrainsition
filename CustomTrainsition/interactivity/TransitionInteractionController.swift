@@ -10,15 +10,13 @@ import UIKit
 
 class TransitionInteractionController:UIPercentDrivenInteractiveTransition{
     var transitionContext: UIViewControllerContextTransitioning? = nil
-    var gestureRecognizer: UIScreenEdgePanGestureRecognizer
-    var edge: UIRectEdge
-//    var direction:
-    init(gestureRecognizer: UIScreenEdgePanGestureRecognizer,edge:UIRectEdge) {
+    var gestureRecognizer: UIPanGestureRecognizer
+    var direction:UIPanGestureRecognizerDirection
+    init(gestureRecognizer: UIPanGestureRecognizer,dir:UIPanGestureRecognizerDirection) {
 //        assert( direction == .bottomToTop || direction == .topToBottom || direction == .rightToLeft || direction == .leftToRight,
 //               "edgeForDragging must be one of UIRectEdgeTop, UIRectEdgeBottom, UIRectEdgeLeft, or UIRectEdgeRight.")
         self.gestureRecognizer = gestureRecognizer
-        self.edge = edge
-//        self.direction = dir
+        self.direction = dir
         super.init()
         self.gestureRecognizer.addTarget(self, action: #selector(gestureRecognizeDidUpdate))
     }
@@ -37,30 +35,22 @@ class TransitionInteractionController:UIPercentDrivenInteractiveTransition{
         let width = transitionContainerView.bounds.width
         let height = transitionContainerView.bounds.height
         
-        switch self.edge {
-        case UIRectEdge.right: return (width - locationInSourceView.x) / width
-        case UIRectEdge.left: return locationInSourceView.x / width
-        case UIRectEdge.bottom: return (height - locationInSourceView.y) / height
-        case UIRectEdge.top: return locationInSourceView.y / height
+        switch self.direction {
+        case UIPanGestureRecognizerDirection.leftToRight: return (width - locationInSourceView.x) / width
+        case UIPanGestureRecognizerDirection.rightToLeft: return locationInSourceView.x / width
+        case UIPanGestureRecognizerDirection.topToBottom: return (height - locationInSourceView.y) / height
+        case UIPanGestureRecognizerDirection.bottomToTop: return locationInSourceView.y / height
         default: return 0
-//        switch self.direction {
-//        case UIPanGestureRecognizerDirection.leftToRight: return (width - locationInSourceView.x) / width
-//        case UIPanGestureRecognizerDirection.rightToLeft: return locationInSourceView.x / width
-//        case UIPanGestureRecognizerDirection.topToBottom: return (height - locationInSourceView.y) / height
-//        case UIPanGestureRecognizerDirection.bottomToTop: return locationInSourceView.y / height
-//        default: return 0
         }
     }
 
 
-    @objc func gestureRecognizeDidUpdate(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+    @objc func gestureRecognizeDidUpdate(gestureRecognizer: UIPanGestureRecognizer) {
         switch gestureRecognizer.state {
         case .began:
             break
         case .changed:
-            self.update(
-                self.percentForGesture(gesture: gestureRecognizer)
-        )  //手势滑动，更新百分比
+            self.update( self.percentForGesture(gesture: gestureRecognizer) )  //手势滑动，更新百分比
         case .ended:    // 滑动结束，判断是否超过一半，如果是则完成剩下的动画，否则取消动画
             if self.percentForGesture(gesture: gestureRecognizer) >= 0.5 {
                 self.finish()
