@@ -16,15 +16,18 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let vc = InteractivityFirstViewController()
-        self.present(vc, animated: true, completion: nil)
+        presentVC()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
+    private func presentVC(){
+        guard let vc = UIStoryboard(name: "InteractivityFirstViewController", bundle: nil).instantiateInitialViewController() else{return}
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 

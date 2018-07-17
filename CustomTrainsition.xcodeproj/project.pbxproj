@@ -20,6 +20,9 @@
 		08D744B620F5EE8300CC42BB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D744B520F5EE8300CC42BB /* SecondViewController.swift */; };
 		08D744B820F5EEE000CC42BB /* CustomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D744B720F5EEE000CC42BB /* CustomAnimator.swift */; };
 		08D827C320F83C160092D49F /* UIPanGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D827C220F83C160092D49F /* UIPanGestureRecognizerExtension.swift */; };
+		08F4620A20FD829B00A326C5 /* InteractivityFirstViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F4620920FD829B00A326C5 /* InteractivityFirstViewController.storyboard */; };
+		08F4620C20FD845700A326C5 /* InteractivitySecondViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F4620B20FD845700A326C5 /* InteractivitySecondViewController.storyboard */; };
+		08F4620E20FD89E200A326C5 /* CustomDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4620D20FD89E200A326C5 /* CustomDismissAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		08D744B520F5EE8300CC42BB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		08D744B720F5EEE000CC42BB /* CustomAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimator.swift; sourceTree = "<group>"; };
 		08D827C220F83C160092D49F /* UIPanGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPanGestureRecognizerExtension.swift; sourceTree = "<group>"; };
+		08F4620920FD829B00A326C5 /* InteractivityFirstViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InteractivityFirstViewController.storyboard; sourceTree = "<group>"; };
+		08F4620B20FD845700A326C5 /* InteractivitySecondViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InteractivitySecondViewController.storyboard; sourceTree = "<group>"; };
+		08F4620D20FD89E200A326C5 /* CustomDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDismissAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				086FE14F20F6EE6800872956 /* InteractivityFirstViewController.swift */,
+				08F4620920FD829B00A326C5 /* InteractivityFirstViewController.storyboard */,
 				086FE15120F6EE8D00872956 /* InteractivitySecondViewController.swift */,
+				08F4620B20FD845700A326C5 /* InteractivitySecondViewController.storyboard */,
 				086FE15320F6EF9800872956 /* InteractivityAnimationDelegate.swift */,
 				081BA70E20F707290020C712 /* TransitionInteractionController.swift */,
 				08D827C220F83C160092D49F /* UIPanGestureRecognizerExtension.swift */,
@@ -88,6 +96,7 @@
 				08D744B520F5EE8300CC42BB /* SecondViewController.swift */,
 				086FE14E20F6EE2100872956 /* interactivity */,
 				08D744B720F5EEE000CC42BB /* CustomAnimator.swift */,
+				08F4620D20FD89E200A326C5 /* CustomDismissAnimator.swift */,
 				08D744A520F5ED2900CC42BB /* Main.storyboard */,
 				08D744A820F5ED2A00CC42BB /* Assets.xcassets */,
 				08D744AA20F5ED2A00CC42BB /* LaunchScreen.storyboard */,
@@ -154,9 +163,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08F4620A20FD829B00A326C5 /* InteractivityFirstViewController.storyboard in Resources */,
 				08D744AC20F5ED2A00CC42BB /* LaunchScreen.storyboard in Resources */,
 				08D744A920F5ED2A00CC42BB /* Assets.xcassets in Resources */,
 				08D744A720F5ED2900CC42BB /* Main.storyboard in Resources */,
+				08F4620C20FD845700A326C5 /* InteractivitySecondViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +180,7 @@
 			files = (
 				08D744B620F5EE8300CC42BB /* SecondViewController.swift in Sources */,
 				086FE15420F6EF9800872956 /* InteractivityAnimationDelegate.swift in Sources */,
+				08F4620E20FD89E200A326C5 /* CustomDismissAnimator.swift in Sources */,
 				081BA70F20F707290020C712 /* TransitionInteractionController.swift in Sources */,
 				08D827C320F83C160092D49F /* UIPanGestureRecognizerExtension.swift in Sources */,
 				086FE15220F6EE8D00872956 /* InteractivitySecondViewController.swift in Sources */,

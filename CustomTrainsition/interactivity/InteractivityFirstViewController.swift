@@ -10,7 +10,19 @@ import UIKit
 
 class InteractivityFirstViewController: UIViewController {
     
-    lazy var interactivitySecondViewController: InteractivitySecondViewController = InteractivitySecondViewController()
+    @IBOutlet weak var presentButton: UIButton!{
+        didSet{
+            presentButton.addTarget(self, action: #selector(animationButtonDidClicked), for: .touchUpInside)
+        }
+    }
+    
+    var interactivitySecondViewController: InteractivitySecondViewController{
+        let vc = UIStoryboard(name: "InteractivitySecondViewController", bundle: nil).instantiateInitialViewController() as! InteractivitySecondViewController
+        vc.customTransitionDelegate = customTransitionDelegate
+        vc.transitioningDelegate = customTransitionDelegate
+        vc.modalPresentationStyle = .fullScreen
+        return vc
+    }
     lazy var customTransitionDelegate: InteractivityAnimationDelegate = InteractivityAnimationDelegate()
     lazy var interactiveTransitionRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer.init(target: self, action: #selector(interactiveTransitionRecognizerAction(sender:)))
     
@@ -18,24 +30,10 @@ class InteractivityFirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /// 添加滑动交互手势
-        self.view.addGestureRecognizer(interactiveTransitionRecognizer)
-        self.view.backgroundColor = UIColor.blue
-        /// 设置动画代理
-        interactivitySecondViewController.customTransitionDelegate = customTransitionDelegate
-        interactivitySecondViewController.transitioningDelegate = customTransitionDelegate
-        interactivitySecondViewController.modalPresentationStyle = .fullScreen
-        // Do any additional setup after loading the view.
+//        self.view.addGestureRecognizer(interactiveTransitionRecognizer)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let button = UIButton()
-        button.frame.size = CGSize(width: 100, height: 100)
-        button.center = self.view.center
-        button.addTarget(self, action: #selector(animationButtonDidClicked), for: .touchUpInside)
-        button.backgroundColor = .black
-        self.view.addSubview(button)
     }
 
 }
@@ -44,7 +42,7 @@ extension InteractivityFirstViewController {
     @objc func animationButtonDidClicked(_ sender: Any) {
         if let _ =  sender as? UIGestureRecognizer {
             customTransitionDelegate.gestureRecognizer = interactiveTransitionRecognizer
-            customTransitionDelegate.direction = UIPanGestureRecognizerDirection.leftToRight
+            customTransitionDelegate.direction = UIPanGestureRecognizerDirection.topToBottom
         }
         else {
             customTransitionDelegate.gestureRecognizer = nil
@@ -55,7 +53,7 @@ extension InteractivityFirstViewController {
     
     @objc func interactiveTransitionRecognizerAction(sender: UIPanGestureRecognizer) {
         if sender.state != .began { return }
-        if sender.direction != .leftToRight { return }
+        if sender.direction != .topToBottom { return }
         self.animationButtonDidClicked(sender)
     }
     

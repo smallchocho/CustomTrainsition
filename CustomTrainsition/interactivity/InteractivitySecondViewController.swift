@@ -11,25 +11,25 @@ import UIKit
 
 class InteractivitySecondViewController: UIViewController {
     
+    
+    @IBOutlet weak var backToFromVCButton: UIButton!{
+        didSet{
+            backToFromVCButton.addTarget(self, action: #selector(animationButtonDidClicked), for: .touchUpInside)
+        }
+    }
+    
     var customTransitionDelegate: InteractivityAnimationDelegate!
     lazy var interactiveTransitionRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer.init(target: self, action: #selector(interactiveTransitionRecognizerAction(sender:)))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addGestureRecognizer(interactiveTransitionRecognizer)
-        self.view.backgroundColor = UIColor.brown
         // Do any additional setup after loading the view.
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let button = UIButton()
-        button.frame.size = CGSize(width: 100, height: 100)
-        button.center = self.view.center
-        button.addTarget(self, action: #selector(animationButtonDidClicked), for: .touchUpInside)
-        button.backgroundColor = .black
-        self.view.addSubview(button)
     }
     
 }
@@ -37,7 +37,7 @@ extension InteractivitySecondViewController{
     @objc func animationButtonDidClicked(_ sender: Any) {
         if let _ =  sender as? UIGestureRecognizer {
             customTransitionDelegate.gestureRecognizer = interactiveTransitionRecognizer
-            customTransitionDelegate.direction = UIPanGestureRecognizerDirection.leftToRight
+            customTransitionDelegate.direction = UIPanGestureRecognizerDirection.topToBottom
         }
         else {
             customTransitionDelegate.gestureRecognizer = nil
@@ -49,7 +49,7 @@ extension InteractivitySecondViewController{
     
     @objc func interactiveTransitionRecognizerAction(sender: UIScreenEdgePanGestureRecognizer) {
         if sender.state != .began { return }
-        if sender.direction != .leftToRight { return }
+        if sender.direction != .topToBottom { return }
         self.animationButtonDidClicked(sender)
         
     }
