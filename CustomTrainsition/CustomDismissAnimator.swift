@@ -19,15 +19,15 @@ class CustomDismissAnimator:NSObject,UIViewControllerAnimatedTransitioning{
         let containerView = transitionContext.containerView
         containerView.insertSubview(toView, belowSubview: fromView)
         let duration = self.transitionDuration(using: transitionContext)
-        UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: {
             fromView.alpha = 1.0
             var finalFrame = fromView.frame
-            finalFrame.origin.y = fromView.frame.height/2
+            finalFrame.origin.y = fromView.frame.height * 4/5
             fromView.frame = finalFrame
             
         }) { (finished:Bool) in
             let wasCanceled = transitionContext.transitionWasCancelled
-//            if wasCanceled{ toView.removeFromSuperview() }
+            if wasCanceled{ toView.removeFromSuperview() }
             transitionContext.completeTransition(!wasCanceled)
         }
     }

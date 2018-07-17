@@ -5,6 +5,7 @@
 //  Created by 黃聖傑 on 2018/7/11.
 //  Copyright © 2018年 seaFoodBon. All rights reserved.
 //
+
 import UIKit
 class CustomAnimator:NSObject,UIViewControllerAnimatedTransitioning{
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -20,12 +21,12 @@ class CustomAnimator:NSObject,UIViewControllerAnimatedTransitioning{
 //      toView?.alpha = 0.0
         containerView.addSubview(toView!)
         let duration = self.transitionDuration(using: transitionContext)
-        UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: {
             toView?.alpha = 1.0
             toView?.frame = transitionContext.finalFrame(for: toVC!)
         }) { (finished:Bool) in
             let wasCanceled = transitionContext.transitionWasCancelled
-            if wasCanceled{ toView?.removeFromSuperview() }
+//            if wasCanceled{ toView?.removeFromSuperview() }
             transitionContext.completeTransition(!wasCanceled)
         }
     }
